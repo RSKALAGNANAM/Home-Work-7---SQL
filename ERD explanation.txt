@@ -1,0 +1,56 @@
+READ ME
+
+I would like to provide a few notes about the ERD I carried out as follows:
+
+1. Relation between Tables "employees" and "dept_emp"
+
+   An employee could have worked in more than one department during his/her tenure with the company.
+   This is also evident from the fact that the table "dept_emp" has 331603 Rows (331604 - Header Row = 331603)
+   whereas, "employees" has 300024 Rows (300025 - Header Row = 300024). This tells us that some employees are
+   listed more than once in "dept_emp" which is how the real world operates.
+   
+   Therefore, one employee (from "employees" Table) could have been more than one department employee; therefore,
+   the relation between the tables "employee" and "dept_emp" would be one-to-many.
+   
+   On the other hand, any department employee from the table "dept_emp", irrespective of how many time he/she is listed
+   in the "dept_emp" Table, can have only one emp_no in the "employees" Table. Thus the relation between "dept_emp" and
+   "employees" Table is many-to-one.
+   
+2. Relation between Tables "employees" and "dept_manager"
+
+   Just as described above, one employee could have been a manager of more than one department. Whereas, any department
+   manager is still one unique employee. Thus, the relation between "employees" and "dept_manager" is one-to-many and the
+   relation between "dept_manager" is many-to-one.
+   
+3. Relation between Tables "employees" and "titles"
+
+   One employee could have held more than one title during his/her tenure. Similarly one title could be given to more
+   than one employee. Thus, the relation between "employees" and "titles" Tables is one-to-many and the reverse relation 
+   between "titles" and "employees" Tables is also one-to-many; thus the overall relation between the two tables is many-to-many.
+   
+4. Relation between Tables "employees" and "salaries"
+
+   Technically, because an employee could have had more than one position and therefore more than one salary which is
+   distinguished in the "salaries" Table by having the "from_date" and "to_date" fields, theoretically the relation
+   between "employees" and "salaries" Tables should be one-to-many. Similarly, the same salary should theoretically be
+   associated with more than one employee thus making the relation between "salaries" and "employees" also one-to-many.
+   Therefore, the overall relation should be many-to-many.
+   
+   HOWEVER, the Tables have the same number of rows and must represent current situation. One employee can have only one
+   salary; therefore, the relation between "employees" and "salaries" is one-to-one. On the other hand, the same salary
+   could be given to more than one employee and the relation between "salaries" to "employees" would be one-to-many.
+   
+5. Relation between Tables "departments" and "dept_emp"
+
+   dept_no is the Primary Key in the "departments" Table. The field "dept_no" in the "dept_emp" refers back to dept_no column
+   in the departments Table and this is how we can get the department information for an employee. Thus, in "dept_emp" dept_no
+   is a Foreign Key referring back to departments Table. One dept_emp could have been associated with more than one department
+   based on his/her tenure; thus making the relation one-to-many. 
+   
+6. Relation between Tables "department" and "dept_manager"
+
+   dept_no is the Primary Key in the "departments" Table. The field "dept_no" in the "dept_manager" refers back to dept_no column
+   in the departments Table and this is how we can get the department information for a department manager. One dept_manager could 
+   have been associated with more than one department based on his/her tenure; thus making the relation one-to-many.
+   
+   
